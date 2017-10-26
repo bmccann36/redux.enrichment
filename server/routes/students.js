@@ -17,8 +17,8 @@ router.get('/', (req, res, next) => {
   .catch(next)
 })
 // PUT - update student info
-router.put('/:studentId/edit', (req, res, next) => {
-  console.log(req.body)
+router.put('/:studentId', (req, res, next) => {
+  // console.log(req.body)
   Student.findById(req.params.studentId)
   .then(student => {
     student.update(req.body)
@@ -44,7 +44,7 @@ router.get('/:studentId/campus', (req, res, next) => {
 })
 
 // POST add new student
-router.post('/add',  (req, res, next) => {
+router.post('/',  (req, res, next) => {
   console.log(req.body)
   Student.create({
       name: req.body.name,
@@ -59,7 +59,7 @@ router.post('/add',  (req, res, next) => {
 
 
 // delete a student
-router.delete('/:studentId/delete', (req, res, next) =>{
+router.delete('/:studentId', (req, res, next) =>{
   console.log(req.params.studentId)
   Student.findById(req.params.studentId)
   .then( student =>  {
