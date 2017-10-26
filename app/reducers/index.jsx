@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux'
 
-const initialState = {}
+import students from './students'
 
-const rootReducer = function(state = initialState, action) {
-  switch(action.type) {
-    default: return state
-  }
-};
+const reducer = combineReducers({
+  students
+})
 
-export default rootReducer
+export default reducer
+
+
+export * from './students'
